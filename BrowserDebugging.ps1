@@ -8,15 +8,6 @@ $browsers["firefox"] = "C:\PortableApps\FirefoxPortable\FirefoxPortable.exe"
 $browsers["Opera"] = "C:\Program Files (x86)\Opera\launcher.exe"
 $browsers["Safari"] = "C:\Program Files (x86)\Safari\Safari.exe"
 
-$projects = @{}
-$projects["MTVMovement"] = "http://mtvmovment.localhost/";
-$projects["CashesOrAshes"] = "http://cashesorashes.localhost/";
-$projects["LiveNation"] = "http://livenation.vpn.autumn01.com/";
-
-$mtv = $projects["MTVMovement"];
-$gat = $projects["CashesOrAshes"];
-$ln = $projects["LiveNation"];
-
 function Display-Website([string] $url, [Switch] $All, [Switch] $Common, [Switch] $Chrome, [Switch] $IE, [Switch] $Firefox, [Switch] $Opera, [Switch] $Safari, [Switch] $Responsive)
 {
 	#Default setup
