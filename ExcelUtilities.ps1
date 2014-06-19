@@ -4,14 +4,14 @@ function Is-Excel
 {
 	BEGIN 		{ $regex = [Regex] '.*\.xls[x]{0,1}$'; }
 	PROCESS		{ if ($regex.Match($_).Success) { return $_; } }
-	END			{ $regex = $null; }
+	END		{ $regex = $null; }
 }
 
 function Is-Csv
 {
 	BEGIN 		{	$regex = [Regex] '.*\.csv$'; }
 	PROCESS		{ if ($regex.Match($_).Success) { return $_; } }
-	END			{ $regex = $null; }
+	END		{ $regex = $null; }
 }
 
 function ConvertExcel-ToCsv([string] $inFile, [string] $outFile='')
