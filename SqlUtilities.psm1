@@ -18,8 +18,8 @@ function ExecuteSQL([string] $command, [string] $connectionString)
 
 	return $DataSet.Tables[0];
 }
-function 
-ExecuteSQL([string] $command, [string] $Server, [string] $DBName, [string] $SQLuser, [string] $SQLpass)
+
+function ExecuteSQL([string] $command, [string] $Server, [string] $DBName, [string] $SQLuser, [string] $SQLpass)
 {
 	$connectionString = "Data Source="+$server+";Initial Catalog="+$DBName+";uid="+$SQLuser+";pass="+$SQLpass+";";
 	ExecuteSql($command, $connectionString);
