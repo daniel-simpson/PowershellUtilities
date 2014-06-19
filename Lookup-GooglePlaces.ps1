@@ -1,7 +1,7 @@
 
 $geocode = 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=';
 function Lookup-GooglePlaces([string] $address)
-{
+{ 
 	if($address.Length -lt 1)
 	{
 		Write-Host 'Please enter a valid address for lookup.';
