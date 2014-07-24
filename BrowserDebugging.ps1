@@ -11,13 +11,7 @@ $browsers["Safari"] = "C:\Program Files (x86)\Safari\Safari.exe"
 function Display-Website([string] $url, [Switch] $All, [Switch] $Common, [Switch] $Chrome, [Switch] $IE, [Switch] $Firefox, [Switch] $Opera, [Switch] $Safari, [Switch] $Responsive)
 {
 	#Default setup
-	if($All -eq $false -and
-		$Common -eq $false -and
-		$Chrome -eq $false -and
-		$IE -eq $false -and
-		$Firefox -eq $false -and
-		$Opera -eq $false -and
-		$Safari -eq $false)
+	if(-not ($All -and $Common -and $Chrome -and $IE -and $Firefox -and $Opera -and $Safari))
 	{
 		$Common = $true;
 	}
