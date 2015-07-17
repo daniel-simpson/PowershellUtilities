@@ -235,3 +235,23 @@ function Notify-QueueComplete([string] $queueName = 'concurrent', [int] $delay =
 		}		
 	}
 }
+
+
+$slackToken = 'TOKEN';
+function Notify-Slack([string] $message, [string] $channel = "@dan.s", [Switch] $AsUser, [Switch] $ShowOutput)
+{
+	$url = "https://slack.com/api/chat.postMessage?token=$slackToken&channel=$channel&text=$message&username=SKYNET&icon_url=https://en.gravatar.com/userimage/43284438/c35f90e4953c5ac423fa17396c2d6c8c.jpg";
+	
+	if($AsUser)
+	{
+		$url += "&as_user=true";
+	}
+	
+	$output = Get-WebRequest $url -SuppressOutput=$(-! $ShowOutput);
+	if($ShowOutput)
+	{
+		Write-Host $output;
+	}
+	return;
+}
+New-Alias -Name ns -Value Notify-Slack
