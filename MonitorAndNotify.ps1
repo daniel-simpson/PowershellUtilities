@@ -1,7 +1,7 @@
 
 # Setup variables ----------------------------------------------------------------------------
 $apikey = '111111111111111111111111111111111111111111111111';
-$proxyUrl = "http://internetproxy:XXXX"
+$Proxy = "http://internetproxy:XXXX"
 
 # Helpers ------------------------------------------------------------------------------------
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
@@ -18,9 +18,12 @@ function Get-WebRequest([string] $url, [Switch] $SuppressOutput)
 	$request.Timeout = 10000; #10 seconds
 	
 	# Proxy setup
-	$proxy = New-Object System.Net.WebProxy($proxyUrl);
-	$proxy.useDefaultCredentials = $true;
-	$request.Proxy = $proxy;
+	if($proxy -ne $null)
+	{
+		$proxy = New-Object System.Net.WebProxy($proxyUrl);
+		$proxy.useDefaultCredentials = $true;
+		$request.Proxy = $proxy;
+	}
 	
 	$response = $request.GetResponse();
 	if($SuppressOutput)	{ return; }
